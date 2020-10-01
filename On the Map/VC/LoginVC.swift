@@ -25,6 +25,7 @@ class LoginVC: UIViewController {
         
         email.text = ""
         password.text = ""
+        
     }
     
     func setLoggingIn(_ loggingIn: Bool) {
@@ -63,8 +64,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginwithFBTapped() {
-        setLoggingIn(true)
-        //get request token
+        performSegue(withIdentifier: "didLogin", sender: self)
     }
     
     func showLoginFailure(message: String) {

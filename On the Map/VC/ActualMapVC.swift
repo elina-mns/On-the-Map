@@ -14,7 +14,15 @@ class ActualMapVC: UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let mapPin = UIBarButtonItem()
+        mapPin.image = UIImage(systemName: "mappin")
+        navigationItem.leftBarButtonItem = mapPin
+        
+        let reverseButton = UIBarButtonItem()
+        reverseButton.image = UIImage(systemName: "goforward")
+        navigationItem.rightBarButtonItem = reverseButton
+        
         // The "locations" array is an array of dictionary objects that are similar to the JSON
         // data that you can download from parse.
         let locations = hardCodedLocationData()

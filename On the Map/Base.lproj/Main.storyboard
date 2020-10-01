@@ -17,23 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="o3u-cg-R5b">
-                                <rect key="frame" x="60" y="343.5" width="294" height="219"/>
+                                <rect key="frame" x="60" y="359.5" width="294" height="187"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sd0-by-4D9">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="34"/>
-                                        <color key="backgroundColor" red="0.44664464409999999" green="0.44448694049999998" blue="0.44880234769999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.66781416189999998" green="0.85552518089999996" blue="0.96130555870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FUI-5L-EXO">
                                         <rect key="frame" x="0.0" y="49" width="294" height="34"/>
-                                        <color key="backgroundColor" red="0.44664464409999999" green="0.44448694049999998" blue="0.44880234769999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.66781416189999998" green="0.85552518089999996" blue="0.96130555870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgO-4u-Neu">
-                                        <rect key="frame" x="0.0" y="98" width="294" height="53"/>
-                                        <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="26"/>
+                                        <rect key="frame" x="0.0" y="98" width="294" height="38"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="26"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -42,8 +42,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMZ-M3-QQj">
-                                        <rect key="frame" x="0.0" y="166" width="294" height="53"/>
-                                        <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="26"/>
+                                        <rect key="frame" x="0.0" y="151" width="294" height="36"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
                                         <state key="normal" title="Log in with Facebook">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -54,17 +54,17 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On the Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6J-zc-axw">
-                                <rect key="frame" x="60" y="173" width="294" height="51"/>
-                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="41"/>
+                                <rect key="frame" x="60" y="173" width="294" height="67"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="41"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8ph-8A-I5O">
-                                <rect key="frame" x="197" y="270" width="20" height="20"/>
+                                <rect key="frame" x="197" y="286" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <color key="backgroundColor" red="0.68822354078292847" green="0.76538610458374023" blue="0.93041259050369263" alpha="0.999267578125" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="o3u-cg-R5b" firstAttribute="top" secondItem="M6J-zc-axw" secondAttribute="bottom" constant="119.5" id="0F1-1m-Hi4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8ph-8A-I5O" secondAttribute="trailing" constant="197" id="1Nq-WA-MMX"/>
@@ -96,68 +96,53 @@
         <!--List-->
         <scene sceneID="wbE-Oh-zcu">
             <objects>
-                <viewController title="List" id="rLR-C7-BhI" sceneMemberID="viewController">
+                <viewController title="List" id="rLR-C7-BhI" customClass="ListVC" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qAl-O4-mVK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="8dA-mY-H1D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="List" image="list.dash" catalog="system" id="cTI-SZ-usm"/>
+                    <navigationItem key="navigationItem" id="HZ1-lk-bjW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDc-iT-Eo9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765" y="400"/>
+            <point key="canvasLocation" x="2729" y="485"/>
         </scene>
         <!--Map-->
         <scene sceneID="Yl2-js-Gf1">
             <objects>
-                <viewController title="Map" id="BSm-Ej-toc" sceneMemberID="viewController">
+                <viewController title="Map" modalPresentationStyle="fullScreen" id="BSm-Ej-toc" customClass="ActualMapVC" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OQa-Vm-Mto">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tjd-Em-Ife">
+                                <rect key="frame" x="0.0" y="56" width="414" height="762"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="0de-g0-cui"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tjd-Em-Ife" firstAttribute="top" secondItem="0de-g0-cui" secondAttribute="top" id="7yS-Ce-p1c"/>
+                            <constraint firstAttribute="bottom" secondItem="tjd-Em-Ife" secondAttribute="bottom" constant="24" id="CBd-HN-Lw8"/>
+                            <constraint firstItem="tjd-Em-Ife" firstAttribute="trailing" secondItem="0de-g0-cui" secondAttribute="trailing" id="CWa-Yh-5f8"/>
+                            <constraint firstItem="tjd-Em-Ife" firstAttribute="leading" secondItem="0de-g0-cui" secondAttribute="leading" id="tW2-6A-4hJ"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="mappin.and.ellipse" catalog="system" id="q9n-9w-3cX"/>
+                    <navigationItem key="navigationItem" id="W9y-Ev-lZ0"/>
+                    <connections>
+                        <outlet property="mapView" destination="tjd-Em-Ife" id="hSe-H7-P7y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p63-Go-Rg5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765" y="-208"/>
-        </scene>
-        <!--ActualMapVC-->
-        <scene sceneID="fIh-U8-4e2">
-            <objects>
-                <viewController title="ActualMapVC" id="ZUG-L9-Yte" customClass="ActualMapVC" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="A3O-IB-jbh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tjd-Em-Ife">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </mapView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="dVh-69-tfj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="tjd-Em-Ife" firstAttribute="trailing" secondItem="dVh-69-tfj" secondAttribute="trailing" id="2Iz-PI-BWb"/>
-                            <constraint firstItem="tjd-Em-Ife" firstAttribute="leading" secondItem="dVh-69-tfj" secondAttribute="leading" id="QgN-EZ-Qfq"/>
-                            <constraint firstItem="tjd-Em-Ife" firstAttribute="bottom" secondItem="dVh-69-tfj" secondAttribute="bottom" id="qND-24-j0L"/>
-                            <constraint firstItem="tjd-Em-Ife" firstAttribute="top" secondItem="dVh-69-tfj" secondAttribute="top" id="zcV-ek-3JE"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="mapView" destination="tjd-Em-Ife" id="Cde-Ja-o6P"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lGQ-Ol-bil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2821.739130434783" y="-208.25892857142856"/>
+            <point key="canvasLocation" x="2729" y="-208"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vj1-Nc-3xC">
             <objects>
-                <tabBarController id="POV-1v-fON" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="POV-1v-fON" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="OeV-vG-kcf"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BOu-BK-MMM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -165,13 +150,51 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BSm-Ej-toc" kind="relationship" relationship="viewControllers" id="TIQ-4I-ZZZ"/>
-                        <segue destination="rLR-C7-BhI" kind="relationship" relationship="viewControllers" id="u1M-FH-TDJ"/>
+                        <segue destination="CoW-Uu-poc" kind="relationship" relationship="viewControllers" id="TIQ-4I-ZZZ"/>
+                        <segue destination="yMV-eM-wje" kind="relationship" relationship="viewControllers" id="u1M-FH-TDJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrz-OD-BSy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="877" y="96"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="sey-iQ-v3f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CoW-Uu-poc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="mappin.and.ellipse" catalog="system" id="q9n-9w-3cX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ER8-a9-XcE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BSm-Ej-toc" kind="relationship" relationship="rootViewController" id="OGZ-6C-x1t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Is9-9p-Gjw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1763.7681159420292" y="-208.25892857142856"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="xYg-hr-jTN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yMV-eM-wje" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="List" image="list.dash" catalog="system" id="cTI-SZ-usm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q9L-5x-3Z8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rLR-C7-BhI" kind="relationship" relationship="rootViewController" id="HYN-bP-i7L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kqi-Bo-tea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1764" y="485"/>
         </scene>
     </scenes>
     <resources>
@@ -179,9 +202,6 @@
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

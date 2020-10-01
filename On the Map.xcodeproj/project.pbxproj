@@ -19,6 +19,8 @@
 		31A1711C2523D32400FF9A38 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1711B2523D32400FF9A38 /* Client.swift */; };
 		31A171212524E86800FF9A38 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A171202524E86800FF9A38 /* LoginResponse.swift */; };
 		31A171262524E9E300FF9A38 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A171252524E9E300FF9A38 /* LoginRequest.swift */; };
+		31A171302525568800FF9A38 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1712F2525568800FF9A38 /* LoginError.swift */; };
+		31C73A112525734F00CF721B /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C73A102525734F00CF721B /* ListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +56,11 @@
 		31A170FE2523AD6600FF9A38 /* On_the_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_the_MapUITests.swift; sourceTree = "<group>"; };
 		31A171002523AD6600FF9A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31A1710F2523C41600FF9A38 /* ActualMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualMapVC.swift; sourceTree = "<group>"; };
-		31A1711B2523D32400FF9A38 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Client.swift; path = VC/Client.swift; sourceTree = "<group>"; };
+		31A1711B2523D32400FF9A38 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		31A171202524E86800FF9A38 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		31A171252524E9E300FF9A38 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		31A1712F2525568800FF9A38 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginError.swift; path = "On the Map/LoginError.swift"; sourceTree = SOURCE_ROOT; };
+		31C73A102525734F00CF721B /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,16 +111,12 @@
 		31A170DB2523AD6500FF9A38 /* On the Map */ = {
 			isa = PBXGroup;
 			children = (
+				31A17134252556B200FF9A38 /* Sources */,
+				31A1712D2525563900FF9A38 /* API Client */,
 				31A170DC2523AD6500FF9A38 /* AppDelegate.swift */,
 				31A170DE2523AD6500FF9A38 /* SceneDelegate.swift */,
 				31A170E22523AD6500FF9A38 /* Main.storyboard */,
-				31A1711B2523D32400FF9A38 /* Client.swift */,
-				31A171252524E9E300FF9A38 /* LoginRequest.swift */,
-				31A171202524E86800FF9A38 /* LoginResponse.swift */,
 				31A171172523D23F00FF9A38 /* VC */,
-				31A170E52523AD6600FF9A38 /* Assets.xcassets */,
-				31A170E72523AD6600FF9A38 /* LaunchScreen.storyboard */,
-				31A170EA2523AD6600FF9A38 /* Info.plist */,
 			);
 			path = "On the Map";
 			sourceTree = "<group>";
@@ -144,8 +144,38 @@
 			children = (
 				31A170E02523AD6500FF9A38 /* LoginVC.swift */,
 				31A1710F2523C41600FF9A38 /* ActualMapVC.swift */,
+				31C73A102525734F00CF721B /* ListVC.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		31A1712D2525563900FF9A38 /* API Client */ = {
+			isa = PBXGroup;
+			children = (
+				31A1712E2525564E00FF9A38 /* Models */,
+				31A1711B2523D32400FF9A38 /* Client.swift */,
+			);
+			path = "API Client";
+			sourceTree = "<group>";
+		};
+		31A1712E2525564E00FF9A38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				31A171252524E9E300FF9A38 /* LoginRequest.swift */,
+				31A171202524E86800FF9A38 /* LoginResponse.swift */,
+				31A1712F2525568800FF9A38 /* LoginError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		31A17134252556B200FF9A38 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				31A170E52523AD6600FF9A38 /* Assets.xcassets */,
+				31A170E72523AD6600FF9A38 /* LaunchScreen.storyboard */,
+				31A170EA2523AD6600FF9A38 /* Info.plist */,
+			);
+			name = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,9 +311,11 @@
 				31A170E12523AD6500FF9A38 /* LoginVC.swift in Sources */,
 				31A171102523C41600FF9A38 /* ActualMapVC.swift in Sources */,
 				31A170DD2523AD6500FF9A38 /* AppDelegate.swift in Sources */,
+				31C73A112525734F00CF721B /* ListVC.swift in Sources */,
 				31A1711C2523D32400FF9A38 /* Client.swift in Sources */,
 				31A171212524E86800FF9A38 /* LoginResponse.swift in Sources */,
 				31A171262524E9E300FF9A38 /* LoginRequest.swift in Sources */,
+				31A171302525568800FF9A38 /* LoginError.swift in Sources */,
 				31A170DF2523AD6500FF9A38 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
