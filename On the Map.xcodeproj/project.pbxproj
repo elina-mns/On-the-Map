@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		31A170DD2523AD6500FF9A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A170DC2523AD6500FF9A38 /* AppDelegate.swift */; };
 		31A170DF2523AD6500FF9A38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A170DE2523AD6500FF9A38 /* SceneDelegate.swift */; };
-		31A170E12523AD6500FF9A38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A170E02523AD6500FF9A38 /* ViewController.swift */; };
+		31A170E12523AD6500FF9A38 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A170E02523AD6500FF9A38 /* LoginVC.swift */; };
 		31A170E42523AD6500FF9A38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31A170E22523AD6500FF9A38 /* Main.storyboard */; };
 		31A170E62523AD6600FF9A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A170E52523AD6600FF9A38 /* Assets.xcassets */; };
 		31A170E92523AD6600FF9A38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31A170E72523AD6600FF9A38 /* LaunchScreen.storyboard */; };
 		31A170F42523AD6600FF9A38 /* On_the_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A170F32523AD6600FF9A38 /* On_the_MapTests.swift */; };
 		31A170FF2523AD6600FF9A38 /* On_the_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A170FE2523AD6600FF9A38 /* On_the_MapUITests.swift */; };
+		31A171102523C41600FF9A38 /* ActualMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1710F2523C41600FF9A38 /* ActualMapVC.swift */; };
+		31A1711C2523D32400FF9A38 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1711B2523D32400FF9A38 /* Client.swift */; };
+		31A171212524E86800FF9A38 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A171202524E86800FF9A38 /* LoginResponse.swift */; };
+		31A171262524E9E300FF9A38 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A171252524E9E300FF9A38 /* LoginRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,7 @@
 		31A170D92523AD6500FF9A38 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A170DC2523AD6500FF9A38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31A170DE2523AD6500FF9A38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		31A170E02523AD6500FF9A38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		31A170E02523AD6500FF9A38 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		31A170E32523AD6500FF9A38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31A170E52523AD6600FF9A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31A170E82523AD6600FF9A38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		31A170FA2523AD6600FF9A38 /* On the MapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On the MapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A170FE2523AD6600FF9A38 /* On_the_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_the_MapUITests.swift; sourceTree = "<group>"; };
 		31A171002523AD6600FF9A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31A1710F2523C41600FF9A38 /* ActualMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualMapVC.swift; sourceTree = "<group>"; };
+		31A1711B2523D32400FF9A38 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Client.swift; path = VC/Client.swift; sourceTree = "<group>"; };
+		31A171202524E86800FF9A38 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		31A171252524E9E300FF9A38 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +109,11 @@
 			children = (
 				31A170DC2523AD6500FF9A38 /* AppDelegate.swift */,
 				31A170DE2523AD6500FF9A38 /* SceneDelegate.swift */,
-				31A170E02523AD6500FF9A38 /* ViewController.swift */,
 				31A170E22523AD6500FF9A38 /* Main.storyboard */,
+				31A1711B2523D32400FF9A38 /* Client.swift */,
+				31A171252524E9E300FF9A38 /* LoginRequest.swift */,
+				31A171202524E86800FF9A38 /* LoginResponse.swift */,
+				31A171172523D23F00FF9A38 /* VC */,
 				31A170E52523AD6600FF9A38 /* Assets.xcassets */,
 				31A170E72523AD6600FF9A38 /* LaunchScreen.storyboard */,
 				31A170EA2523AD6600FF9A38 /* Info.plist */,
@@ -126,6 +137,15 @@
 				31A171002523AD6600FF9A38 /* Info.plist */,
 			);
 			path = "On the MapUITests";
+			sourceTree = "<group>";
+		};
+		31A171172523D23F00FF9A38 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				31A170E02523AD6500FF9A38 /* LoginVC.swift */,
+				31A1710F2523C41600FF9A38 /* ActualMapVC.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31A170E12523AD6500FF9A38 /* ViewController.swift in Sources */,
+				31A170E12523AD6500FF9A38 /* LoginVC.swift in Sources */,
+				31A171102523C41600FF9A38 /* ActualMapVC.swift in Sources */,
 				31A170DD2523AD6500FF9A38 /* AppDelegate.swift in Sources */,
+				31A1711C2523D32400FF9A38 /* Client.swift in Sources */,
+				31A171212524E86800FF9A38 /* LoginResponse.swift in Sources */,
+				31A171262524E9E300FF9A38 /* LoginRequest.swift in Sources */,
 				31A170DF2523AD6500FF9A38 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
