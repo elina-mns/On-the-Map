@@ -21,6 +21,9 @@
 		31A171262524E9E300FF9A38 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A171252524E9E300FF9A38 /* LoginRequest.swift */; };
 		31A171302525568800FF9A38 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1712F2525568800FF9A38 /* LoginError.swift */; };
 		31C73A112525734F00CF721B /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C73A102525734F00CF721B /* ListVC.swift */; };
+		31C73A16252644CB00CF721B /* EnterLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C73A15252644CB00CF721B /* EnterLocationVC.swift */; };
+		31C73A1B252692DF00CF721B /* EnterLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C73A1A252692DF00CF721B /* EnterLinkVC.swift */; };
+		31C73A20252698A700CF721B /* UIVIewController+AlertShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C73A1F252698A700CF721B /* UIVIewController+AlertShowing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		31A171252524E9E300FF9A38 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		31A1712F2525568800FF9A38 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginError.swift; path = "On the Map/LoginError.swift"; sourceTree = SOURCE_ROOT; };
 		31C73A102525734F00CF721B /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		31C73A15252644CB00CF721B /* EnterLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EnterLocationVC.swift; path = "On the Map/EnterLocationVC.swift"; sourceTree = SOURCE_ROOT; };
+		31C73A1A252692DF00CF721B /* EnterLinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterLinkVC.swift; sourceTree = "<group>"; };
+		31C73A1F252698A700CF721B /* UIVIewController+AlertShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+AlertShowing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 				31A170DE2523AD6500FF9A38 /* SceneDelegate.swift */,
 				31A170E22523AD6500FF9A38 /* Main.storyboard */,
 				31A171172523D23F00FF9A38 /* VC */,
+				31C73A1F252698A700CF721B /* UIVIewController+AlertShowing.swift */,
 			);
 			path = "On the Map";
 			sourceTree = "<group>";
@@ -142,9 +149,11 @@
 		31A171172523D23F00FF9A38 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				31C73A15252644CB00CF721B /* EnterLocationVC.swift */,
 				31A170E02523AD6500FF9A38 /* LoginVC.swift */,
 				31A1710F2523C41600FF9A38 /* ActualMapVC.swift */,
 				31C73A102525734F00CF721B /* ListVC.swift */,
+				31C73A1A252692DF00CF721B /* EnterLinkVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -313,7 +322,10 @@
 				31A170DD2523AD6500FF9A38 /* AppDelegate.swift in Sources */,
 				31C73A112525734F00CF721B /* ListVC.swift in Sources */,
 				31A1711C2523D32400FF9A38 /* Client.swift in Sources */,
+				31C73A20252698A700CF721B /* UIVIewController+AlertShowing.swift in Sources */,
 				31A171212524E86800FF9A38 /* LoginResponse.swift in Sources */,
+				31C73A16252644CB00CF721B /* EnterLocationVC.swift in Sources */,
+				31C73A1B252692DF00CF721B /* EnterLinkVC.swift in Sources */,
 				31A171262524E9E300FF9A38 /* LoginRequest.swift in Sources */,
 				31A171302525568800FF9A38 /* LoginError.swift in Sources */,
 				31A170DF2523AD6500FF9A38 /* SceneDelegate.swift in Sources */,

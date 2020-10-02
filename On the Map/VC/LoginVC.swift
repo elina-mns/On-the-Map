@@ -42,11 +42,11 @@ class LoginVC: UIViewController {
     }
     @IBAction func loginTapped(_ sender: UIButton) {
         guard let email = email.text else {
-            showLoginFailure(message: "email required")
+            showFailureAlert(message: "email required")
             return
         }
         guard let password = password.text else {
-            showLoginFailure(message: "password required")
+            showFailureAlert(message: "password required")
             return
         }
         setLoggingIn(true)
@@ -55,9 +55,9 @@ class LoginVC: UIViewController {
             if success {
                 self.performSegue(withIdentifier: "didLogin", sender: self)
             } else if let error = error {
-                self.showLoginFailure(message: error.localizedDescription)
+                self.showFailureAlert(message: error.localizedDescription)
             } else {
-                self.showLoginFailure(message: "Error")
+                self.showFailureAlert(message: "Error")
             }
             self.setLoggingIn(false)
         }
@@ -66,12 +66,5 @@ class LoginVC: UIViewController {
     @IBAction func loginwithFBTapped() {
         performSegue(withIdentifier: "didLogin", sender: self)
     }
-    
-    func showLoginFailure(message: String) {
-        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
-    }
-
 }
 
