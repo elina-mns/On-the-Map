@@ -12,6 +12,7 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     
     @IBOutlet var mapView: MKMapView!
     var locationManager: CLLocationManager!
+    var studentLocations: [StudentLocation] = []
     
     let centerMapButton: UIButton = {
         let button = UIButton(type: .system)
@@ -30,11 +31,12 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         super.viewDidLoad()
         
         let mapPin = UIBarButtonItem(image: UIImage(systemName: "mappin"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(showEnterLocationVC))
-        navigationItem.leftBarButtonItem = mapPin
-        
         
         let reverseButton = UIBarButtonItem(image: UIImage(systemName: "goforward"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(reload))
-        navigationItem.rightBarButtonItem = reverseButton
+        navigationItem.rightBarButtonItems = [mapPin, reverseButton]
+        
+        let logoutButton = UIBarButtonItem(image: UIImage(systemName: "person.fill.xmark"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(logout))
+        navigationItem.leftBarButtonItem = logoutButton
         
         
         view.addSubview(centerMapButton)
@@ -44,7 +46,7 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         centerMapButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         centerMapButton.layer.cornerRadius = 50 / 2
         centerMapButton.alpha = 1
-        
+        reload()
 //        configureMapView()
 //        configureLocationManager()
 //        centerMapOnUserLocation()
@@ -53,6 +55,14 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     
     @objc func handleCenterOnUserLocation() {
         centerMapOnUserLocation()
+    }
+    
+    @objc func logout() {
+        Client.logout {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     func centerMapOnUserLocation() {
@@ -67,7 +77,14 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     }
     
     @objc func reload() {
-        addAnnotationsToMap()
+        Client.downloadStudentLocations(request: StudentLocationRequest()) { (locations, error) in
+            guard !locations.isEmpty else {
+                self.showFailureAlert(message: error?.localizedDescription ?? "")
+                return
+            }
+            self.studentLocations = locations
+            self.addAnnotationsToMap()
+        }
     }
     
     @objc func showEnterLocationVC() {
@@ -85,52 +102,33 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     
     func addAnnotationsToMap() {
         mapView.removeAnnotations(mapView.annotations)
-        // The "locations" array is an array of dictionary objects that are similar to the JSON
-        // data that you can download from parse.
-        let locations = (UIApplication.shared.delegate as? AppDelegate)?.hardCodedLocations ?? []
-        
-        // We will create an MKPointAnnotation for each dictionary in "locations". The
-        // point annotations will be stored in this array, and then provided to the map view.
+
+        let locations = studentLocations
         var annotations = [MKPointAnnotation]()
         
-        // The "locations" array is loaded with the sample data below. We are using the dictionaries
-        // to create map annotations. This would be more stylish if the dictionaries were being
-        // used to create custom structs. Perhaps StudentLocation structs.
-        
-        for dictionary in locations {
-            
-            // Notice that the float values are being used to create CLLocationDegree values.
-            // This is a version of the Double type.
-            let lat = CLLocationDegrees(dictionary["latitude"] as! Double)
-            let long = CLLocationDegrees(dictionary["longitude"] as! Double)
-            
-            // The lat and long are used to create a CLLocationCoordinates2D instance.
+        for studentLocation in locations {
+
+            let lat = CLLocationDegrees(studentLocation.latitude)
+            let long = CLLocationDegrees(studentLocation.longitude)
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             
-            let first = dictionary["firstName"] as! String
-            let last = dictionary["lastName"] as! String
-            let mediaURL = dictionary["mediaURL"] as! String
-            
-            // Here we create the annotation and set its coordiate, title, and subtitle properties
+            let first = studentLocation.firstName
+            let last = studentLocation.lastName
+            let mediaURL = studentLocation.mediaURL
+        
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
             annotation.title = "\(first) \(last)"
             annotation.subtitle = mediaURL
             
-            // Finally we place the annotation in an array of annotations.
             annotations.append(annotation)
         }
-        
-        // When the array is complete, we add the annotations to the map.
+
         self.mapView.addAnnotations(annotations)
+        //to write a message if download fails
+        
         
     }
-    
-    // MARK: - MKMapViewDelegate
-
-    // Here we create a view with a "right callout accessory view". You might choose to look into other
-    // decoration alternatives. Notice the similarity between this method and the cellForRowAtIndexPath
-    // method in TableViewDataSource.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let reuseId = "pin"
@@ -140,7 +138,7 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
-            pinView!.pinTintColor = .red
+            pinView!.pinTintColor = .lightGray
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
@@ -158,13 +156,4 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
             }
         }
     }
-//    func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//
-//        if control == annotationView.rightCalloutAccessoryView {
-//            let app = UIApplication.sharedApplication()
-//            app.openURL(NSURL(string: annotationView.annotation.subtitle))
-//        }
-//  }
-
-
 }

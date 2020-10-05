@@ -37,7 +37,7 @@ class EnterLinkVC: UIViewController {
         dictToInsert["longitude"] = location?.coordinate.longitude
         dictToInsert["mapString"] = "something"
         dictToInsert["mediaURL"] = textField.text
-        (UIApplication.shared.delegate as? AppDelegate)?.hardCodedLocations.append(dictToInsert)
+        //StudentLocations.append(dictToInsert)
         performSegue(withIdentifier: "unwindToMapVC", sender: self)
     }
     

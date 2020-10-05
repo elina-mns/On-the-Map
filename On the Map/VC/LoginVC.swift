@@ -66,5 +66,6 @@ class LoginVC: UIViewController {
     @IBAction func loginwithFBTapped() {
         performSegue(withIdentifier: "didLogin", sender: self)
     }
+    
 }
 

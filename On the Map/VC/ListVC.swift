@@ -12,9 +12,7 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
    
-    var locations: [[String : Any]] {
-        (UIApplication.shared.delegate as? AppDelegate)?.hardCodedLocations ?? []
-    }
+    var studentLocations: [StudentLocation] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,18 +33,26 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let reverseButton = UIBarButtonItem()
         reverseButton.image = UIImage(systemName: "goforward")
         navigationItem.rightBarButtonItem = reverseButton
+        Client.downloadStudentLocations(request: StudentLocationRequest()) { (locations, error) in
+            guard !locations.isEmpty else {
+                self.showFailureAlert(message: error?.localizedDescription ?? "")
+                return
+            }
+            self.studentLocations = locations
+            self.tableView.reloadData()
+        }
     }
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        return studentLocations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
-        let location = self.locations[indexPath.row]
-        let firstName = location["firstName"] as? String ?? ""
-        let lastName = location["lastName"] as? String ?? ""
+        let studentLocation = studentLocations[indexPath.row]
+        let firstName = studentLocation.firstName
+        let lastName = studentLocation.lastName
         cell.textLabel?.text = "\(firstName) \(lastName)"
         cell.imageView?.image = UIImage(systemName: "mappin")
         return cell
