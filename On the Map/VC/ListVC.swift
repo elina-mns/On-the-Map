@@ -57,5 +57,9 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.imageView?.image = UIImage(systemName: "mappin")
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        OpeningSafari(enteredLink: studentLocations[indexPath.row].mediaURL).open()
+    }
 
 }

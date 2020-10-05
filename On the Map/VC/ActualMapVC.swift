@@ -29,6 +29,7 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         
         let mapPin = UIBarButtonItem(image: UIImage(systemName: "mappin"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(showEnterLocationVC))
         
@@ -127,8 +128,8 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         self.mapView.addAnnotations(annotations)
         //to write a message if download fails
         
-        
     }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let reuseId = "pin"
@@ -138,7 +139,7 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
-            pinView!.pinTintColor = .lightGray
+            pinView!.pinTintColor = .gray
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
@@ -150,10 +151,8 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            let app = UIApplication.shared
-            if let toOpen = view.annotation?.subtitle! {
-                app.openURL(URL(string: toOpen)!)
-            }
+            OpeningSafari(enteredLink: ((view.annotation?.subtitle) ?? nil) ?? "").open()
         }
     }
+
 }

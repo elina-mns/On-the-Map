@@ -30,6 +30,7 @@
 		31DBAE462527846600E84AC6 /* URLQueriesProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE452527846600E84AC6 /* URLQueriesProviding.swift */; };
 		31DBAE4B2527C86400E84AC6 /* PuttingSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE4A2527C86400E84AC6 /* PuttingSL.swift */; };
 		31DBAE50252B9E4200E84AC6 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE4F252B9E4200E84AC6 /* ErrorType.swift */; };
+		31DBAE55252BB9EF00E84AC6 /* OpeningSafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE54252BB9EF00E84AC6 /* OpeningSafari.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		31DBAE452527846600E84AC6 /* URLQueriesProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueriesProviding.swift; sourceTree = "<group>"; };
 		31DBAE4A2527C86400E84AC6 /* PuttingSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PuttingSL.swift; path = "On the Map/API Client/PuttingSL.swift"; sourceTree = SOURCE_ROOT; };
 		31DBAE4F252B9E4200E84AC6 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorType.swift; path = "On the Map/API Client/ErrorType.swift"; sourceTree = SOURCE_ROOT; };
+		31DBAE54252BB9EF00E84AC6 /* OpeningSafari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningSafari.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		31A1712E2525564E00FF9A38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				31DBAE54252BB9EF00E84AC6 /* OpeningSafari.swift */,
 				31DBAE4F252B9E4200E84AC6 /* ErrorType.swift */,
 				31DBAE4A2527C86400E84AC6 /* PuttingSL.swift */,
 				31A171252524E9E300FF9A38 /* LoginRequest.swift */,
@@ -339,6 +342,7 @@
 				31A170E12523AD6500FF9A38 /* LoginVC.swift in Sources */,
 				31A171102523C41600FF9A38 /* ActualMapVC.swift in Sources */,
 				31A170DD2523AD6500FF9A38 /* AppDelegate.swift in Sources */,
+				31DBAE55252BB9EF00E84AC6 /* OpeningSafari.swift in Sources */,
 				31DBAE412527814700E84AC6 /* SLRequest.swift in Sources */,
 				31C73A112525734F00CF721B /* ListVC.swift in Sources */,
 				31A1711C2523D32400FF9A38 /* Client.swift in Sources */,
