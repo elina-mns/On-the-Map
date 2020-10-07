@@ -50,10 +50,21 @@ class LoginVC: UIViewController {
             return
         }
         setLoggingIn(true)
-        
-        Client.login(username: email, password: password) { success, error in
-            if success {
-                self.performSegue(withIdentifier: "didLogin", sender: self)
+        // Request uniqKey
+        Client.login(username: email, password: password) { uniqueKey, error in
+            // If uniqKey presents
+            if let uniqueKey = uniqueKey {
+                UserInfo.uniqueKey = uniqueKey
+                // Request userInfo
+                Client.fetchUserInfo(userId: uniqueKey) { (userResponse, error) in
+                    if let userResponse = userResponse {
+                        UserInfo.firstName = userResponse.firstName ?? ""
+                        UserInfo.lastName = userResponse.lastName ?? ""
+                        self.performSegue(withIdentifier: "didLogin", sender: self)
+                    } else {
+                        self.showFailureAlert(message: "User not found")
+                    }
+                }
             } else if let error = error {
                 self.showFailureAlert(message: error.localizedDescription)
             } else {

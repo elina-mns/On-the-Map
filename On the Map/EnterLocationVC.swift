@@ -47,6 +47,7 @@ class EnterLocationVC: UIViewController, UISearchBarDelegate {
     func showEnterLinkVC(with location: CLLocation) {
         let newViewController = storyboard?.instantiateViewController(identifier: "EnterLink") as! EnterLinkVC
         newViewController.location = location
+        newViewController.mapString = text.text
         newViewController.modalPresentationStyle = .fullScreen
         self.present(newViewController, animated: true, completion: nil)
     }

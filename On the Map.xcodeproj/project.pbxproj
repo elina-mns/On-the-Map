@@ -31,6 +31,9 @@
 		31DBAE4B2527C86400E84AC6 /* PuttingSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE4A2527C86400E84AC6 /* PuttingSL.swift */; };
 		31DBAE50252B9E4200E84AC6 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE4F252B9E4200E84AC6 /* ErrorType.swift */; };
 		31DBAE55252BB9EF00E84AC6 /* OpeningSafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE54252BB9EF00E84AC6 /* OpeningSafari.swift */; };
+		31DBAE5A252CD48200E84AC6 /* PostingSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE59252CD48200E84AC6 /* PostingSL.swift */; };
+		31DBAE5F252CF0BD00E84AC6 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE5E252CF0BD00E84AC6 /* UserInfo.swift */; };
+		31DBAE6A252CF22900E84AC6 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBAE69252CF22900E84AC6 /* UserResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +83,10 @@
 		31DBAE452527846600E84AC6 /* URLQueriesProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueriesProviding.swift; sourceTree = "<group>"; };
 		31DBAE4A2527C86400E84AC6 /* PuttingSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PuttingSL.swift; path = "On the Map/API Client/PuttingSL.swift"; sourceTree = SOURCE_ROOT; };
 		31DBAE4F252B9E4200E84AC6 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorType.swift; path = "On the Map/API Client/ErrorType.swift"; sourceTree = SOURCE_ROOT; };
-		31DBAE54252BB9EF00E84AC6 /* OpeningSafari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningSafari.swift; sourceTree = SOURCE_ROOT; };
+		31DBAE54252BB9EF00E84AC6 /* OpeningSafari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpeningSafari.swift; path = "On the Map/OpeningSafari.swift"; sourceTree = SOURCE_ROOT; };
+		31DBAE59252CD48200E84AC6 /* PostingSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingSL.swift; sourceTree = "<group>"; };
+		31DBAE5E252CF0BD00E84AC6 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		31DBAE69252CF22900E84AC6 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserResponse.swift; path = "On the Map/VC/UserResponse.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +140,10 @@
 				31A17134252556B200FF9A38 /* Sources */,
 				31A1712D2525563900FF9A38 /* API Client */,
 				31A170DC2523AD6500FF9A38 /* AppDelegate.swift */,
+				31DBAE54252BB9EF00E84AC6 /* OpeningSafari.swift */,
 				31A170DE2523AD6500FF9A38 /* SceneDelegate.swift */,
 				31A170E22523AD6500FF9A38 /* Main.storyboard */,
+				31DBAE5E252CF0BD00E84AC6 /* UserInfo.swift */,
 				31A171172523D23F00FF9A38 /* VC */,
 				31C73A1F252698A700CF721B /* UIVIewController+AlertShowing.swift */,
 			);
@@ -185,11 +193,12 @@
 		31A1712E2525564E00FF9A38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				31DBAE54252BB9EF00E84AC6 /* OpeningSafari.swift */,
+				31DBAE69252CF22900E84AC6 /* UserResponse.swift */,
 				31DBAE4F252B9E4200E84AC6 /* ErrorType.swift */,
 				31DBAE4A2527C86400E84AC6 /* PuttingSL.swift */,
 				31A171252524E9E300FF9A38 /* LoginRequest.swift */,
 				31DBAE3325277A4100E84AC6 /* StudentLocationAPI.swift */,
+				31DBAE59252CD48200E84AC6 /* PostingSL.swift */,
 				31DBAE402527814700E84AC6 /* SLRequest.swift */,
 				31A171202524E86800FF9A38 /* LoginResponse.swift */,
 				31A1712F2525568800FF9A38 /* LoginError.swift */,
@@ -339,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31DBAE3925277EFE00E84AC6 /* StudentLocations.swift in Sources */,
+				31DBAE5A252CD48200E84AC6 /* PostingSL.swift in Sources */,
 				31A170E12523AD6500FF9A38 /* LoginVC.swift in Sources */,
 				31A171102523C41600FF9A38 /* ActualMapVC.swift in Sources */,
 				31A170DD2523AD6500FF9A38 /* AppDelegate.swift in Sources */,
@@ -356,7 +366,9 @@
 				31DBAE4B2527C86400E84AC6 /* PuttingSL.swift in Sources */,
 				31A171262524E9E300FF9A38 /* LoginRequest.swift in Sources */,
 				31A171302525568800FF9A38 /* LoginError.swift in Sources */,
+				31DBAE5F252CF0BD00E84AC6 /* UserInfo.swift in Sources */,
 				31A170DF2523AD6500FF9A38 /* SceneDelegate.swift in Sources */,
+				31DBAE6A252CF22900E84AC6 /* UserResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

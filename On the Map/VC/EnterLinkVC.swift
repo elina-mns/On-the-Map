@@ -14,6 +14,7 @@ class EnterLinkVC: UIViewController {
     @IBOutlet weak var textField: UITextView!
     
     var location: CLLocation?
+    var mapString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +30,23 @@ class EnterLinkVC: UIViewController {
             showFailureAlert(message: "Please fill the link")
             return
         }
-        var dictToInsert: [String: Any] = [:]
-        dictToInsert["createdAt"] = Date()
-        dictToInsert["firstName"] = "Jopa"
-        dictToInsert["lastName"] = "Jopio"
-        dictToInsert["latitude"] = location?.coordinate.latitude
-        dictToInsert["longitude"] = location?.coordinate.longitude
-        dictToInsert["mapString"] = "something"
-        dictToInsert["mediaURL"] = textField.text
-        //StudentLocations.append(dictToInsert)
-        performSegue(withIdentifier: "unwindToMapVC", sender: self)
+        
+        let studentLocation = StudentLocation(objectId: nil,
+                                              uniqueKey: UserInfo.uniqueKey, // should be user uniq key
+                                              firstName: UserInfo.firstName, // should be user first name
+                                              lastName: UserInfo.lastName, // should be user last name
+                                              mapString: mapString ?? "",
+                                              mediaURL: textField.text ?? "",
+                                              latitude: location?.coordinate.latitude,
+                                              longitude: location?.coordinate.longitude)
+
+        Client.postingStudentLocation(studentLocation: studentLocation) { (success, error) in
+            if success {
+                self.performSegue(withIdentifier: "unwindToMapVC", sender: self)
+            } else {
+                self.showFailureAlert(message: "Impossible to post this location")
+            }
+        }
     }
     
     @IBAction func didTapCancel(_ sender: Any) {

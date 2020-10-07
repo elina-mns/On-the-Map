@@ -318,7 +318,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UUo-kF-Q4D">
                                 <rect key="frame" x="0.0" y="305" width="414" height="591"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZY-ag-qUr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZY-ag-qUr">
                                 <rect key="frame" x="164" y="713" width="87" height="36"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
                                 <state key="normal" title="Submit">

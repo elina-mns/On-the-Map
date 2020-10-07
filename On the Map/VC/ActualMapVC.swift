@@ -103,20 +103,20 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     
     func addAnnotationsToMap() {
         mapView.removeAnnotations(mapView.annotations)
-
+        
         let locations = studentLocations
         var annotations = [MKPointAnnotation]()
         
         for studentLocation in locations {
-
-            let lat = CLLocationDegrees(studentLocation.latitude)
-            let long = CLLocationDegrees(studentLocation.longitude)
+            
+            let lat = CLLocationDegrees(studentLocation.latitude ?? 0)
+            let long = CLLocationDegrees(studentLocation.longitude ?? 0)
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             
             let first = studentLocation.firstName
             let last = studentLocation.lastName
             let mediaURL = studentLocation.mediaURL
-        
+            
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
             annotation.title = "\(first) \(last)"
@@ -124,10 +124,8 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
             
             annotations.append(annotation)
         }
-
-        self.mapView.addAnnotations(annotations)
-        //to write a message if download fails
         
+        self.mapView.addAnnotations(annotations)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

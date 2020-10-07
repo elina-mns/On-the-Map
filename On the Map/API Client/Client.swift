@@ -18,19 +18,15 @@ class Client {
     enum Endpoints {
         static let base = "https://onthemap-api.udacity.com/v1"
         
-        case login
-        case logout
-        case downloadStudentLocations
-        case publicUserData
-        case puttingSL
+        case session
+        case publicUserData(userId: String)
+        case studentLocations
         
         var stringValue: String {
             switch self {
-            case .login: return Endpoints.base + "/session"
-            case .logout: return Endpoints.base + "/session"
-            case .downloadStudentLocations: return Endpoints.base + "/StudentLocation"
-            case .publicUserData: return Endpoints.base + "users/"
-            case .puttingSL: return Endpoints.base + "/StudentLocation/"
+            case .session: return Endpoints.base + "/session"
+            case .studentLocations: return Endpoints.base + "/StudentLocation"
+            case let .publicUserData(userId): return Endpoints.base + "/users/" + "\(userId)"
             }
         }
         var url: URL {
@@ -46,7 +42,15 @@ class Client {
         let queryItems = query?.toURLQuery()
         var urlComps = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         urlComps.queryItems = queryItems
-        let result = urlComps.url!
+        return taskForGETRequest(url: urlComps.url!, responseType: responseType, completion: completion)
+        
+    }
+    
+    @discardableResult
+    class func taskForGETRequest<ResponseType: Decodable>(url: URL,
+                                                          responseType: ResponseType.Type,
+                                                          completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionDataTask {
+        let result = url
         let task = URLSession.shared.dataTask(with: result) { data, response, error in
             guard let data = data else {
                 DispatchQueue.main.async {
@@ -56,7 +60,9 @@ class Client {
             }
             let decoder = JSONDecoder()
             do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                let responseWithoutUselessSymbols = String(data: data, encoding: .utf8)?.replacingOccurrences(of: ")]}\'\n", with: "") ?? ""
+                let correctData = responseWithoutUselessSymbols.data(using: .utf8)!
+                let responseObject = try decoder.decode(ResponseType.self, from: correctData)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                 }
@@ -69,10 +75,11 @@ class Client {
         task.resume()
         
         return task
+        
     }
     
     class func downloadStudentLocations(request: StudentLocationRequest, completion: @escaping ([StudentLocation], Error?) -> Void) {
-        taskForGETRequest(url: Endpoints.downloadStudentLocations.url, query: request, responseType: StudentLocations.self) { response, error in
+        taskForGETRequest(url: Endpoints.studentLocations.url, query: request, responseType: StudentLocations.self) { response, error in
             if let response = response {
                 completion(response.results, nil)
             } else {
@@ -117,23 +124,23 @@ class Client {
         task.resume()
     }
     
-    class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+    class func login(username: String, password: String, completion: @escaping (String?, Error?) -> Void) {
         let body = UdacityLogin(username: username, password: password)
-        taskForPOSTRequest(url: Endpoints.login.url, responseType: LoginResponse.self, body: body) { response, error in
+        taskForPOSTRequest(url: Endpoints.session.url, responseType: LoginResponse.self, body: body) { response, error in
             if let response = response {
                 if response.account.registered {
-                    completion(true, nil)
+                    completion(response.account.key, nil)
                 } else {
-                    completion(false, LoginError.userNotFound)
+                    completion(nil, LoginError.userNotFound)
                 }
             } else {
-                completion(false, error)
+                completion(nil, error)
             }
         }
     }
     
     class func logout(completion: @escaping () -> Void) {
-        var request = URLRequest(url: Endpoints.logout.url)
+        var request = URLRequest(url: Endpoints.session.url)
         request.httpMethod = "DELETE"
         var xsrfCookie: HTTPCookie? = nil
         let sharedCookieStorage = HTTPCookieStorage.shared
@@ -157,7 +164,7 @@ class Client {
     }
     
     class func puttingStudentLocation(studentLocation: StudentLocation, objectId: String, completion: @escaping (Bool, Error?) -> Void) {
-        let urlString = Endpoints.puttingSL.stringValue + objectId
+        let urlString = Endpoints.studentLocations.stringValue + objectId
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
         request.httpMethod = "PUT"
@@ -182,6 +189,27 @@ class Client {
             completion(responseObject != nil, nil)
         }
         task.resume()
+    }
+    
+    class func postingStudentLocation(studentLocation: StudentLocation, completion: @escaping (Bool, Error?) -> Void) {
+        taskForPOSTRequest(url: Endpoints.studentLocations.url, responseType: PostingSL.self, body: studentLocation)
+        { response, error in
+            if response != nil {
+                completion(true, nil)
+            } else {
+                completion(false, error)
+            }
+        }
+    }
+    
+    class func fetchUserInfo(userId: String, completion: @escaping (User?, Error?) -> Void) {
+        taskForGETRequest(url: Endpoints.publicUserData(userId: userId).url, responseType: User.self) { (response, error) in
+            if let response = response {
+                completion(response, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
     }
 }
 
