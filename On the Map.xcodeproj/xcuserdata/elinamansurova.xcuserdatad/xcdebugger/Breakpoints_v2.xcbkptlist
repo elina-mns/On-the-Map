@@ -30,10 +30,10 @@
             filePath = "On the Map/VC/ListVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "studentLocations"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,8 +46,8 @@
             filePath = "On the Map/VC/ActualMapVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "showEnterLocationVC()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "On the Map/VC/ActualMapVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "addAnnotationsToMap()"
             landmarkType = "7">
          </BreakpointContent>
@@ -242,54 +242,6 @@
             endingLineNumber = "197"
             landmarkName = "postingStudentLocation(studentLocation:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7164C542-4FB8-464B-AB08-09A2D51A497C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "On the Map/VC/ActualMapVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "reload()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7164C542-4FB8-464B-AB08-09A2D51A497C - 1d97380d9f27562f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "On_the_Map.ActualMapVC.reload() -&gt; ()"
-                  moduleName = "On the Map"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/elinamansurova/Desktop/Projects/On%20the%20Map/On%20the%20Map/VC/ActualMapVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "33">
-               </Location>
-               <Location
-                  uuid = "7164C542-4FB8-464B-AB08-09A2D51A497C - 29d4edac8ac05618"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;On_the_Map.StudentLocation&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in On_the_Map.ActualMapVC.reload() -&gt; ()"
-                  moduleName = "On the Map"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/elinamansurova/Desktop/Projects/On%20the%20Map/On%20the%20Map/VC/ActualMapVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "142">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

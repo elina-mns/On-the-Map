@@ -12,7 +12,6 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     
     @IBOutlet var mapView: MKMapView!
     var locationManager: CLLocationManager!
-    var studentLocations: [StudentLocation] = []
     
     let centerMapButton: UIButton = {
         let button = UIButton(type: .system)
@@ -48,10 +47,10 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         centerMapButton.layer.cornerRadius = 50 / 2
         centerMapButton.alpha = 1
         reload()
-//        configureMapView()
-//        configureLocationManager()
-//        centerMapOnUserLocation()
-//        handleCenterOnUserLocation()
+       
+        
+        configureLocationManager()
+        handleCenterOnUserLocation()
     }
     
     @objc func handleCenterOnUserLocation() {
@@ -66,6 +65,16 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         }
     }
     
+    @objc func reload() {
+        (UIApplication.shared.delegate as? AppDelegate)?.reload(completion: { (error) in
+            guard let error = error else {
+                self.addAnnotationsToMap()
+                return
+            }
+            self.showFailureAlert(message: error.localizedDescription)
+        })
+    }
+    
     func centerMapOnUserLocation() {
         guard let coordinate = locationManager.location?.coordinate else { return }
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
@@ -75,17 +84,6 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     func configureLocationManager() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
-    }
-    
-    @objc func reload() {
-        Client.downloadStudentLocations(request: StudentLocationRequest(limit: "100", skip: nil, order: "-updatedAt", uniqueKey: nil)) { (locations, error) in
-            guard !locations.isEmpty else {
-                self.showFailureAlert(message: error?.localizedDescription ?? "")
-                return
-            }
-            self.studentLocations = locations
-            self.addAnnotationsToMap()
-        }
     }
     
     @objc func showEnterLocationVC() {
@@ -104,7 +102,7 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     func addAnnotationsToMap() {
         mapView.removeAnnotations(mapView.annotations)
         
-        let locations = studentLocations
+        let locations = (UIApplication.shared.delegate as? AppDelegate)?.studentLocations ?? []
         var annotations = [MKPointAnnotation]()
         
         for studentLocation in locations {

@@ -12,7 +12,9 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
    
-    var studentLocations: [StudentLocation] = []
+    var studentLocations: [StudentLocation] {
+        (UIApplication.shared.delegate as? AppDelegate)?.studentLocations ?? []
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,21 +28,28 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         
 
-        let mapPin = UIBarButtonItem()
-        mapPin.image = UIImage(systemName: "mappin")
-        navigationItem.leftBarButtonItem = mapPin
+        let mapPin = UIBarButtonItem(image: UIImage(systemName: "mappin"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(showEnterLocationVC))
         
-        let reverseButton = UIBarButtonItem()
-        reverseButton.image = UIImage(systemName: "goforward")
-        navigationItem.rightBarButtonItem = reverseButton
-        Client.downloadStudentLocations(request: StudentLocationRequest(limit: "100", skip: nil, order: "-updatedAt", uniqueKey: nil)) { (locations, error) in
-            guard !locations.isEmpty else {
-                self.showFailureAlert(message: error?.localizedDescription ?? "")
+        let reverseButton = UIBarButtonItem(image: UIImage(systemName: "goforward"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(reload))
+        navigationItem.rightBarButtonItems = [mapPin, reverseButton]
+        reload()
+       
+    }
+    
+    @objc func reload() {
+        (UIApplication.shared.delegate as? AppDelegate)?.reload(completion: { (error) in
+            guard let error = error else {
+                self.tableView.reloadData()
                 return
             }
-            self.studentLocations = locations
-            self.tableView.reloadData()
-        }
+            self.showFailureAlert(message: error.localizedDescription)
+        })
+    }
+    
+    @objc func showEnterLocationVC() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "EnterLocation") as! EnterLocationVC
+        self.present(newViewController, animated: true, completion: nil)
     }
     
 
