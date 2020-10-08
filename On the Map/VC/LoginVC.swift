@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class LoginVC: UIViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var login: UIButton!
-    @IBOutlet weak var loginwithFB: UIButton!
+    @IBOutlet weak var loginwithFB: FBLoginButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -73,10 +74,5 @@ class LoginVC: UIViewController {
             self.setLoggingIn(false)
         }
     }
-    
-    @IBAction func loginwithFBTapped() {
-        performSegue(withIdentifier: "didLogin", sender: self)
-    }
-    
 }
 

@@ -13,13 +13,6 @@ struct StudentLocationRequest: URLQueriesProviding {
     let order: String?
     let uniqueKey: String?
     
-    init() {
-        limit = nil
-        skip = nil
-        order = nil
-        uniqueKey = nil
-    }
-    
     func toURLQuery() -> [URLQueryItem] {
         var queries = [URLQueryItem]()
         if let limit = limit {

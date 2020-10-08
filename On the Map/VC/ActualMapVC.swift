@@ -78,7 +78,7 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     }
     
     @objc func reload() {
-        Client.downloadStudentLocations(request: StudentLocationRequest()) { (locations, error) in
+        Client.downloadStudentLocations(request: StudentLocationRequest(limit: "100", skip: nil, order: "-updatedAt", uniqueKey: nil)) { (locations, error) in
             guard !locations.isEmpty else {
                 self.showFailureAlert(message: error?.localizedDescription ?? "")
                 return

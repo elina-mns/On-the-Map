@@ -42,15 +42,12 @@
                                             <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aYX-Ff-7Sm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMZ-M3-QQj">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMZ-M3-QQj" customClass="FBSDKLoginButton">
                                         <rect key="frame" x="0.0" y="151" width="294" height="36"/>
                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
                                         <state key="normal" title="Log in with Facebook">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="loginwithFBTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="rVM-UH-FjZ"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -308,26 +305,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="D6z-m4-eCP">
-                                <rect key="frame" x="20" y="131" width="374" height="166"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="20" y="131" width="374" height="109"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="eu1-7A-TOR"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="29"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UUo-kF-Q4D">
-                                <rect key="frame" x="0.0" y="305" width="414" height="591"/>
+                                <rect key="frame" x="0.0" y="307" width="414" height="589"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="589" id="hhf-8m-kc3"/>
+                                </constraints>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZY-ag-qUr">
-                                <rect key="frame" x="164" y="713" width="87" height="36"/>
-                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapSubmit:" destination="0TI-kg-5qL" eventType="touchUpInside" id="3YF-Hg-5GD"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSV-Tr-qFg">
                                 <rect key="frame" x="326" y="59" width="73" height="32"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
@@ -344,26 +337,33 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZY-ag-qUr">
+                                <rect key="frame" x="164" y="259" width="87" height="34"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="22"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSubmit:" destination="0TI-kg-5qL" eventType="touchUpInside" id="3YF-Hg-5GD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YUL-jy-1W1"/>
                         <color key="backgroundColor" red="0.68822354078292847" green="0.76538610458374023" blue="0.93041259050369263" alpha="0.9992675781" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="UUo-kF-Q4D" secondAttribute="bottom" id="0Sx-qY-0hN"/>
-                            <constraint firstItem="6ZY-ag-qUr" firstAttribute="leading" secondItem="YUL-jy-1W1" secondAttribute="leading" constant="164" id="1t2-Tp-Ro0"/>
+                            <constraint firstItem="6ZY-ag-qUr" firstAttribute="leading" secondItem="YUL-jy-1W1" secondAttribute="leading" constant="164" id="2H5-Ge-KwF"/>
                             <constraint firstItem="YSV-Tr-qFg" firstAttribute="top" secondItem="YUL-jy-1W1" secondAttribute="top" constant="15" id="5y0-Ge-cP8"/>
                             <constraint firstItem="hRn-gq-T6t" firstAttribute="centerX" secondItem="YUL-jy-1W1" secondAttribute="centerX" id="6Im-3c-AUv"/>
                             <constraint firstItem="D6z-m4-eCP" firstAttribute="leading" secondItem="YUL-jy-1W1" secondAttribute="leading" constant="20" id="K1F-Ze-hll"/>
-                            <constraint firstItem="6ZY-ag-qUr" firstAttribute="top" secondItem="D6z-m4-eCP" secondAttribute="bottom" constant="416" id="LtP-xr-f4G"/>
                             <constraint firstItem="UUo-kF-Q4D" firstAttribute="leading" secondItem="YUL-jy-1W1" secondAttribute="leading" id="MBU-7W-TNX"/>
                             <constraint firstItem="D6z-m4-eCP" firstAttribute="top" secondItem="YUL-jy-1W1" secondAttribute="top" constant="87" id="ZbY-Or-ASM"/>
-                            <constraint firstItem="YUL-jy-1W1" firstAttribute="bottom" secondItem="6ZY-ag-qUr" secondAttribute="bottom" constant="113" id="cAH-9a-wQC"/>
-                            <constraint firstItem="YUL-jy-1W1" firstAttribute="trailing" secondItem="6ZY-ag-qUr" secondAttribute="trailing" constant="163" id="dms-Us-037"/>
-                            <constraint firstItem="UUo-kF-Q4D" firstAttribute="top" secondItem="D6z-m4-eCP" secondAttribute="bottom" constant="8" symbolic="YES" id="ftG-RL-dEm"/>
+                            <constraint firstItem="YUL-jy-1W1" firstAttribute="trailing" secondItem="6ZY-ag-qUr" secondAttribute="trailing" constant="163" id="aay-Z8-i7f"/>
                             <constraint firstItem="UUo-kF-Q4D" firstAttribute="trailing" secondItem="YUL-jy-1W1" secondAttribute="trailing" id="hoN-na-HUq"/>
                             <constraint firstItem="YSV-Tr-qFg" firstAttribute="leading" secondItem="YUL-jy-1W1" secondAttribute="leading" constant="326" id="ksB-tb-L5G"/>
                             <constraint firstItem="D6z-m4-eCP" firstAttribute="top" secondItem="hRn-gq-T6t" secondAttribute="bottom" constant="8" symbolic="YES" id="lAY-lW-bHd"/>
                             <constraint firstItem="YUL-jy-1W1" firstAttribute="trailing" secondItem="D6z-m4-eCP" secondAttribute="trailing" constant="20" id="lpa-7d-WEX"/>
-                            <constraint firstItem="6ZY-ag-qUr" firstAttribute="top" secondItem="D6z-m4-eCP" secondAttribute="bottom" constant="416" id="t8G-6Z-hPP"/>
+                            <constraint firstItem="UUo-kF-Q4D" firstAttribute="top" secondItem="6ZY-ag-qUr" secondAttribute="bottom" constant="14" id="rnf-wd-smQ"/>
                             <constraint firstItem="YUL-jy-1W1" firstAttribute="trailing" secondItem="YSV-Tr-qFg" secondAttribute="trailing" constant="15" id="wVR-KM-ugq"/>
                         </constraints>
                     </view>
@@ -388,6 +388,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
