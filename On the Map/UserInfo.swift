@@ -11,4 +11,5 @@ struct UserInfo {
     static var uniqueKey: String = ""
     static var firstName: String = ""
     static var lastName: String = ""
+    static var isFromFacebook: Bool = false
 }

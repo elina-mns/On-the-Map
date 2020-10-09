@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import FBSDKLoginKit
 
 class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -58,9 +59,14 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     }
     
     @objc func logout() {
-        Client.logout {
-            DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
+        if UserInfo.isFromFacebook {
+            LoginManager().logOut()
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            Client.logout {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }

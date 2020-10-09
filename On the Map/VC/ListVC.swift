@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 
 class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -33,6 +34,9 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let reverseButton = UIBarButtonItem(image: UIImage(systemName: "goforward"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(reload))
         navigationItem.rightBarButtonItems = [mapPin, reverseButton]
         reload()
+        
+        let logoutButton = UIBarButtonItem(image: UIImage(systemName: "person.fill.xmark"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(logout))
+        navigationItem.leftBarButtonItem = logoutButton
        
     }
     
@@ -70,5 +74,18 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         OpeningSafari(enteredLink: studentLocations[indexPath.row].mediaURL).open()
+    }
+    
+    @objc func logout() {
+        if UserInfo.isFromFacebook {
+            LoginManager().logOut()
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            Client.logout {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
 }
