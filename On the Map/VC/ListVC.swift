@@ -63,6 +63,7 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let firstName = studentLocation.firstName
         let lastName = studentLocation.lastName
         cell.textLabel?.text = "\(firstName) \(lastName)"
+        cell.detailTextLabel?.text = studentLocation.mediaURL
         cell.imageView?.image = UIImage(systemName: "mappin")
         return cell
     }
@@ -70,5 +71,4 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         OpeningSafari(enteredLink: studentLocations[indexPath.row].mediaURL).open()
     }
-
 }
