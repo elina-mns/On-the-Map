@@ -46,8 +46,8 @@
             filePath = "On the Map/VC/ActualMapVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "showEnterLocationVC()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "On the Map/VC/ActualMapVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "addAnnotationsToMap()"
             landmarkType = "7">
          </BreakpointContent>

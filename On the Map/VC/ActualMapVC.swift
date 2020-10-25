@@ -13,15 +13,7 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     
     @IBOutlet var mapView: MKMapView!
     var locationManager: CLLocationManager!
-    
-    let centerMapButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "1")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        button.addTarget(self, action: #selector(handleCenterOnUserLocation), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addAnnotationsToMap()
@@ -39,23 +31,8 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         let logoutButton = UIBarButtonItem(image: UIImage(systemName: "person.fill.xmark"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(logout))
         navigationItem.leftBarButtonItem = logoutButton
         
-        
-        view.addSubview(centerMapButton)
-        centerMapButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-        centerMapButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive = true
-        centerMapButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        centerMapButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        centerMapButton.layer.cornerRadius = 50 / 2
-        centerMapButton.alpha = 1
         reload()
-       
-        
         configureLocationManager()
-        handleCenterOnUserLocation()
-    }
-    
-    @objc func handleCenterOnUserLocation() {
-        centerMapOnUserLocation()
     }
     
     @objc func logout() {
@@ -79,12 +56,6 @@ class ActualMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
             }
             self.showFailureAlert(message: error.localizedDescription)
         })
-    }
-    
-    func centerMapOnUserLocation() {
-        guard let coordinate = locationManager.location?.coordinate else { return }
-        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
-        mapView.setRegion(region, animated: true)
     }
     
     func configureLocationManager() {
